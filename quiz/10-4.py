@@ -1,4 +1,5 @@
 from collections import deque
+from sqlite3 import Timestamp
 
 n = int(input())
 indegree = [0] * (n+1)
@@ -24,9 +25,9 @@ def topology_sort():
     while q:
         now = q.popleft()
         for i in graph[now]:
+            result[i] = max(result[i], result[now] + times[i])
             indegree[i] -= 1
             if indegree[i] == 0:
-                result[i] += result[now]
                 q.append(i)
 
     print(*result[1:], sep="\n")
