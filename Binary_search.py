@@ -1,7 +1,4 @@
 #이진 탐색 소스코드 구현(재귀함수)
-from unittest import result
-
-
 def binary_search(array, target, start, end):
     if start > end:
         return None
